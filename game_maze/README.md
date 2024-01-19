@@ -1,11 +1,2 @@
-# Build Your Own World Design Document
+# Building Own World Design
 
-**Partner 1:**
-
-**Partner 2:**
-
-## Classes and Data Structures
-
-## Algorithms
-
-## Persistence
