@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heydoctor.app.mapper.ReplyMapper">
+    <insert id="insert">
+        INSERT INTO TBL_REPLY (REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT)
+        VALUES (#{replyId}, #{userId}, #{answerId}, #{replyContent})
+        <selectKey keyProperty="replyId" resultType="long" order="BEFORE">
+            SELECT SEQ_REPLY.NEXTVAL FROM DUAL
+        </selectKey>
+    </insert>
+
+    <select id="count" resultType="int">
+        SELECT NVL(COUNT(REPLY_ID), 0) FROM TBL_REPLY WHERE ANSWER_ID = #{answerId}
+    </select>
+
+    <select id="select" resultType="replyDTO">
+        SELECT REPLY_ID, U.USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME,
+               U.USER_NAME, USER_PROFILE_PATH, USER_PROFILE_NAME, USER_PROFILE_SIZE,
+               USER_PROFILE_TYPE, USER_PROFILE_UUID
+        FROM TBL_USER U JOIN TBL_REPLY R
+        ON U.USER_ID = R.USER_ID AND REPLY_ID = #{replyId}
+    </select>
+
+    <select id="selectAllReplyDTO" resultType="replyDTO" parameterType="list">
+        SELECT REPLY_ID, U.USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME,
+               U.USER_NAME, USER_PROFILE_PATH, USER_PROFILE_NAME, USER_PROFILE_SIZE,
+               USER_PROFILE_TYPE, USER_PROFILE_UUID
+        FROM TBL_USER U JOIN TBL_REPLY R
+        ON U.USER_ID = R.USER_ID
+        AND ANSWER_ID IN
+        <choose>
+            <when test="list.size() != 0">
+                <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </when>
+            <otherwise>
+                (0)
+            </otherwise>
+        </choose>
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_REPLY WHERE REPLY_ID = #{replyId}
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE FROM TBL_REPLY WHERE ANSWER_ID = #{answerId}
+    </delete>
+
+    <select id="selectAllAnswerReply" resultType="replyVO">
+        SELECT TBL_REPLY.REPLY_CONTENT, TBL_REPLY.REPLY_REGISTER_DATETIME, TBL_REPLY.REPLY_ID, TBL_REPLY.ANSWER_ID
+        FROM TBL_REPLY
+        JOIN TBL_ANSWER ON TBL_REPLY.ANSWER_ID = TBL_ANSWER.ANSWER_ID
+        GROUP BY TBL_ANSWER.ANSWER_ID, TBL_REPLY.REPLY_CONTENT, TBL_REPLY.REPLY_REGISTER_DATETIME, TBL_REPLY.REPLY_ID
+    </select>
+</mapper>

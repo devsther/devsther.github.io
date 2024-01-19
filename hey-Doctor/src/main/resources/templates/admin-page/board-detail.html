@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 관리 세부 페이지</title>
+    <link rel="stylesheet" href="../../static/css/admin-page/board-detail.css">
+</head>
+<body>
+    <div id="wrap">
+        <header class="nav-bar">
+            <div class="logo"></div>
+            <h3 style="text-align: center">관리자님, 환영합니다.</h3>
+            <div class="nav-container">
+                <section class="nav-box">
+                    <div class="flex-line">
+                        <div class="nav-title">커뮤니티 관리</div>
+                        <div class="arrow"></div>
+                    </div>
+                    <ul class="board-list list">
+                        <li onclick="window.open(`../admin-page/admin-board-list.html`,`_self`)">글 목록</a></li>
+                    </ul>
+                </section>
+                <section class="nav-box">
+                    <div class="flex-line">
+                        <div class="nav-title">문의 관리</div>
+                        <div class="arrow"></div>
+                    </div>
+                    <ul class="inquiries-list list">
+                        <li onclick="window.open(`../admin-page/admin.html`,`_self`)">전체 문의 목록</li>
+                    </ul>
+                </section>
+            </div>
+        </header>
+        <main>
+            <div class="detail">
+                <div class="title">
+                    <h3>오늘 축구를 하다가 발목을 다쳤습니다.</h3>
+                </div>
+                <div class="profile">
+                    <div class="profile-img"></div>
+                    <div class="detail-profile">
+                        <div class="profile-name">방울청년</div>
+                        <div class="add-date">2023-05-11</div>
+                    </div>
+                    <span class="more-detail">
+                        <span class="detail-choice" onclick="window.open(`../admin-page/board-detail-edit.html`,`_self`)">수정하기</span>
+                        <hr>
+                        <span class="detail-choice"  onclick="window.open(`../admin-page/board-detail-edit.html`,`_self`)">삭제하기</span>
+                    </span>
+                    <div class="more"></div>
+                </div>
+                <div style="width:100%">
+                    <hr style="border-width:5px;">
+                </div>
+                <div class="content-img"></div>
+                <div class="content-text">발목에 피멍이 들었습니다. 간단한 응급치료로는 어떻게 처리해야 할까요?</div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/admin/board-nav.js"></script>
+<script>
+    $(".more").on("click", function(){
+    var top =  $(this).offset().top+$(this).outerHeight(true); //떠야하는 상단 위치
+    var right = ($(window).width() - ($(this).offset().left+$(this).outerWidth())); //떠야하는 우측위치
+        
+    $(".more-detail").css("top",top).css("right",right); //떠야하는 위치에 
+    
+    if( $(".more-detail").is(":visible")){
+         $(".more-detail").slideUp();
+    }else{
+         $(".more-detail").slideDown();
+    }
+}) 
+
+</script>
+</html>

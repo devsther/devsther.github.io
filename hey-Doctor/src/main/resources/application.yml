@@ -1,0 +1,28 @@
+server:
+  port: 10000
+  servlet:
+    session:
+      tracking-modes: cookie
+#  tomcat:
+#    relaxed-path-chars
+
+spring:
+  datasource:
+    hikari:
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url: jdbc:oracle:thin:@//localhost:1521/XE
+      username: hr
+      password: hr
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  multipart:
+#    location: /Users/gimjin/Desktop/upload
+    enabled: true
+
+
+

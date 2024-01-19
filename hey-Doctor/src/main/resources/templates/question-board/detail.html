@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleag.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/question-board/question-board-detail.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
+    <link rel="stylesheet" href="/css/main-page/header.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
+    <link rel="stylesheet" href="/css/modal/modal.css">
+    <link rel="stylesheet" href="/css/main-page/header.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
+    <title>헤이닥터</title>
+</head>
+<body>
+<div id="__nuxt">
+    <div id="__layout">
+        <div>
+            <div>
+                <!--헤더 시작-->
+                <div class="header-layout">
+                    <div class="header-wrapper">
+                        <div id="header-layout">
+                            <header th:replace="~{/main-page/header :: #post-header}"></header>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
+        <div id="main-grid" class="c-application c-new-grid main-grid-component fluid" style="min-height: calc(100vh - 324px); background-color: rgb(255, 255, 255);">
+            <div class="c-application c-new-row">
+                <div class="c-application c-new-col read-case-container new-col-sm-4 new-col-lg-12">
+                    <div class="c-application c-new-grid container" style="background-color: rgb(255, 255, 255);">
+                        <div class="c-application c-new-row">
+                            <div class="c-application c-new-col new-col-lg-8 new-offset-lg-2">
+                                <article class="c-application c-box" style="background-color: rgb(255, 255, 255); padding: 62px 16px 20px;">
+                                    <div class="flex justify-between">
+                                        <div class="c-application c-user-information case-detail-question-user-info simple mb-8">
+                                            <div class="avatar-wrapper">
+                                                <div>
+                                                    <div class="c-application c-avatar--container xsmall">
+                                                        <i class="c-avatar nickname xsmall" style="background: rgb(180, 210, 169);"></i>
+                                                        <div class="c-avatar--item">
+                                                            <!-- profile image -->
+                                                            <div class="c-application c-typography c-caption2 f-semi-bold" style="color: rgb(255, 255, 255);">
+                                                                <th:block th:text="${#strings.substring(question.userName,0,1)}"></th:block>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <div class="name-company-wrapper">
+                                                    <div class="name-icon-wrapper">
+                                                        <div class="name-wrapper">
+                                                            <div class="c-application c-typography user-information-name ellipsis c-caption1"
+                                                                 style="color: inherit; font-weight: 600;">
+                                                                <th:block th:text="${question.userName}"></th:block>
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-info-wrapper">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="other-wrapper"></div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div id="c-dropdown-20" class="c-application c-dropdown">
+                                                <div class="c-dropdown--item-group"
+                                                     style="max-width: 200px;">
+                                                    <div>
+                                                        <button type="button"
+                                                                class="c-application c-icon-button medium">
+                                                            <svg width="24" height="24"
+                                                                 viewBox="0 0 24 24" fill="black"
+                                                                 xmlns="http://www.w3.org/2000/svg"
+                                                                 class="c-application c-icon"
+                                                                 style="fill: rgb(148, 155, 160);">
+                                                                <circle cx="12" cy="5.5" r="1.5">
+                                                                </circle>
+                                                                <circle cx="12" cy="12" r="1.5">
+                                                                </circle>
+                                                                <circle cx="12" cy="18.5" r="1.5">
+                                                                </circle>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="c-application c-typography c-application c-content c-caption1 c-content--overline department-type"
+                                       style="color: rgb(173, 179, 184);">
+                                    </p>
+                                    <h2 class="c-application c-typography c-application c-content c-headline7 c-content--title" style="color: rgb(4, 5, 5);">
+                                        <span class="c-application c-typography" style="color: rgb(42, 125, 225);">Q.</span>
+                                        <span class="c-application c-typography c-headline7 f-medium"
+                                              style="color: inherit;" th:text="${question.questionTitle}">
+                                        </span>
+                                    </h2>
+                                    <p class="c-application c-typography c-application c-content c-body1 c-content--body"
+                                        style="color: rgb(32, 35, 37);" th:text="${question.questionContent}">
+                                    </p>
+                                    <div class="card-footer-container">
+                                        <div class="card-action-container">
+                                            <div class="card-action-wrapper">
+                                                <button class="c-application c-rating-button case-detail-like-button info"
+                                                        icon-name="IconLikeSmallLine" color="info">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="black"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         class="mr-4 c-application c-icon"
+                                                         style="fill: rgb(148, 155, 160);">
+                                                        <path fill-rule="evenodd"
+                                                              clip-rule="evenodd"
+                                                              d="M8 5.79179L7.16516 4.5257C6.75467 3.90318 6.05854 3.5 5.27273 3.5C4.02534 3.5 3 4.5219 3 5.8C3 6.46253 3.27323 7.21871 3.78425 8.03207C4.28965 8.8365 4.98019 9.62153 5.6981 10.3215C6.41239 11.0179 7.13067 11.6079 7.67232 12.0246C7.79109 12.116 7.90097 12.1988 8 12.2722C8.09904 12.1988 8.20892 12.116 8.32768 12.0246C8.86934 11.6079 9.58761 11.0179 10.3019 10.3215C11.0198 9.62153 11.7103 8.8365 12.2157 8.03207C12.7268 7.21871 13 6.46253 13 5.8C13 4.5219 11.9747 3.5 10.7273 3.5C9.94146 3.5 9.24533 3.90318 8.83485 4.5257L8 5.79179ZM8 13.5C8 13.5 2 9.5 2 5.8C2 3.97746 3.46525 2.5 5.27273 2.5C6.0432 2.5 6.75149 2.76846 7.31061 3.21768C7.57757 3.43217 7.81052 3.68786 8 3.97522C8.18948 3.68786 8.42244 3.43217 8.6894 3.21768C9.24851 2.76846 9.9568 2.5 10.7273 2.5C12.5348 2.5 14 3.97746 14 5.8C14 9.5 8 13.5 8 13.5Z">
+                                                        </path>
+                                                    </svg>
+                                                    <div class="c-application c-typography c-body2"
+                                                         style="color: rgb(148, 155, 160);">
+                                                        <th:block th:text="${question.questionLikeCount}"></th:block>
+                                                    </div>
+                                            <hr class="c-application c-divider mx-12 line vertical #EAECEE"
+                                                style="border-color: rgb(234, 236, 238); height: 12px;">
+                                            <div class="answer-footer-action-wrapper" >
+                                                <button class="c-application c-rating-button case-detail-bookmark-button info"
+                                                        icon-name="IconBookmarkSmallLine" color="info">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="black"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         class="mr-4 c-application c-icon"
+                                                         style="fill: rgb(148, 155, 160);">
+                                                        <path fill-rule="evenodd"
+                                                              clip-rule="evenodd"
+                                                              d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                        </path>
+                                                    </svg>
+                                                    <div class="c-application c-typography c-body2"
+                                                         style="color: rgb(148, 155, 160);">
+                                                        <th:block th:text="${question.bookmarkCount}"></th:block>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
+                                           data-v-1d8d6f66="" style="color: rgb(207, 212, 215);" th:text="${#strings.substring(question.questionRegisterDatetime, 0, 10)}">
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-application c-new-grid read-case-additional-comment-grid-layout fluid" style="background-color: rgb(251, 211, 211);">
+                        <div class="c-application c-new-row no-gutters">
+                            <div class="c-application c-new-grid container" style="background-color: inherit;">
+                                <div class="c-application c-new-row">
+                                    <div class="c-application c-new-col new-col-lg-8 new-offset-lg-2">
+                                        <div class="additional-comment-container mt-32">
+                                            <div class="c-application c-box c-box--has-border answer-btn" style="background-color: rgb(255, 255, 255); border-color: rgb(225, 228, 230); padding: 10px 16px;">
+                                                <div class="flex justify-between align-items-center">
+                                                    <!--클릭했을때 나오는 스타일-->
+                                                    <article class="c-application c-box c-box--has-border answer-write-box"
+                                                             style="border-color: rgb(234, 236, 238); padding: 20px;">
+                                                        <div class="flex justify-between align-items-center">
+                                                            <div class="c-application c-user-information full">
+                                                                <div class="avatar-wrapper">
+                                                                    <div>
+                                                                        <div class="c-application c-avatar--container medium">
+                                                                            <i class="c-avatar nickname medium"
+                                                                               style="background: rgb(172, 197, 234);"></i>
+                                                                            <!--profile image-->
+                                                                            <div class="c-avatar--item"><!----><!---->
+                                                                                <div class="c-application c-typography c-body1 f-semi-bold" style="color: rgb(255, 255, 255);">
+                                                                                    <th:block th:text="${#strings.substring(user.userName,0,1)}"></th:block>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="information-wrapper">
+                                                                    <div class="name-company-wrapper">
+                                                                        <div class="name-icon-wrapper">
+                                                                            <div class="name-wrapper">
+                                                                                <div class="c-application c-typography user-information-name ellipsis c-body1 ellipsis"
+                                                                                     style="color: inherit; font-weight: 600;" th:text="${user.userName}">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="user-info-wrapper">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="other-wrapper" style="margin-top: 4px;"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="c-application c-textarea basic">
+                                                            <div class="flex">
+                                                                <label class="text-wrap">
+                                                                    <textarea class="answer-area" placeholder="내용을 입력해주세요." maxlength="500" style="max-height: 185px; min-height: 185px; overflow-y: auto;"></textarea>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="case-detail-comment-writer-pc-footer-container">
+                                                            <div class="c-application c-typography c-application c-text-rating c-body2"
+                                                                 style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                <div class="mr-4">
+                                                                    <div class="c-application c-typography c-caption1"  style="color: rgb(148, 155, 160);">
+                                                                        글자수
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-length">
+                                                                    <div class="c-application c-typography c-caption1 answer-char-size" style="color: #adb5bd;">
+                                                                        <span>0</span> / 500
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="c-application c-button medium light-primary fill write-answer"><!---->
+                                                                <div class="c-button--icon"></div>
+                                                                답변 등록
+                                                                <div class="c-button--icon"></div>
+                                                            </button>
+                                                        </div> <!---->
+                                                    </article>
+                                                    <div class="c-application c-typography additional-comment-placeholder-pc fake-submit-btn" style="color: rgb(207, 212, 215);">
+                                                        답변을 남기고 채택을 받아보세요.
+                                                    </div>
+                                                    <div class="additional-comment-button-wrapper fake-submit-btn">
+                                                        <button class="c-application c-button medium light-primary fill">
+                                                            <div class="c-button--icon"></div>
+                                                            답변 등록
+                                                            <div class="c-button--icon"></div>
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-application c-new-grid read-case-answer-section-grid-layout fluid" style="background-color: inherit;">
+                        <div class="c-application c-new-row no-gutters">
+                            <div class="c-application c-new-grid container" style="background-color: inherit;">
+                                <div class="c-application c-new-row">
+                                    <div class="c-application c-new-col new-col-lg-8 new-offset-lg-2">
+                                        <div class="my-40">
+                                            <div class="answer-info-wrapper">
+                                                <div class="c-application c-typography c-body2"
+                                                     style="color: rgb(89, 95, 99);">
+                                                    답변
+                                                    <span class="c-application c-typography f-medium answer-size" style="color: rgb(32, 35, 37);"
+                                                          th:text="${answerCount}">
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- list start -->
+                                            <div id="answer-container-main">
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                            </div>
+                                            <div class="infinite-loading-container">
+                                                <div class="infinite-status-prompt loading-items">
+                                                    <span>
+                                                        <div style="width: 50px; height: 50px; overflow: hidden; margin: 0px auto;">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 viewBox="0 0 100 100" width="100" height="100"
+                                                                 preserveAspectRatio="xMidYMid meet"
+                                                                 style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                                                                <defs>
+                                                                    <clipPath id="__lottie_element_274">
+                                                                        <rect width="100" height="100" x="0"
+                                                                              y="0"></rect>
+                                                                    </clipPath>
+                                                                </defs>
+                                                                <g clip-path="url(#__lottie_element_274)">
+                                                                    <g transform="matrix(0.4048864245414734,0,0,0.4048864245414734,29.755678176879883,29.755678176879883)"
+                                                                       opacity="0.5" style="display: block;">
+                                                                        <g opacity="1"
+                                                                           transform="matrix(1,0,0,1,50,50)">
+                                                                            <path fill="rgb(42,125,225)"
+                                                                                  fill-opacity="1"
+                                                                                  d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                            </path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g transform="matrix(0.5951135754585266,0,0,0.5951135754585266,20.244321823120117,20.244321823120117)"
+                                                                       opacity="0.5" style="display: block;">
+                                                                        <g opacity="1"
+                                                                           transform="matrix(1,0,0,1,50,50)">
+                                                                            <path fill="rgb(42,125,225)"
+                                                                                  fill-opacity="1"
+                                                                                  d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                            </path>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="infinite-status-prompt none-items" style="display: none">
+                                                    <span>
+                                                        <div class="c-application c-box no-list"
+                                                             style="background-color: rgb(252, 252, 252); padding: 24px;">
+                                                            <div class="no-list">
+                                                                <div class="c-application c-typography c-body1 f-semi-bold"
+                                                                     style="color: rgb(32, 35, 37); text-align: left;">
+                                                                    아직 작성된 답변이 없습니다.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <footer th:replace="~{/main-page/footer :: #footer}"></footer>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script th:inline="javascript">
+    let question = [[${question}]];
+    let answers = [[${answers}]];
+    let user = [[${user}]];
+    let replies = [[${replies}]];
+    let answerCount = [[${answerCount}]];
+</script>
+<script src="/js/question-board/util.js"></script>
+<script src="/js/modal/modal.js"></script>
+<script src="/js/department.js"></script>
+<script src="/js/question-board/detail.js"></script>
+</html>

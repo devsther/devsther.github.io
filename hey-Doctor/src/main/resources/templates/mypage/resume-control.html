@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login-page/resume-control.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/css/main-page/header.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
+    <title>이력서 관리 | 코멘토</title>
+</head>
+<body>
+<header th:replace="~{/main-page/header :: #post-header}"></header>
+    <div id="app">
+        <div class="c-application c-grid main-grid-component container" style="min-height: 100vh;">
+            <div class="c-application c-row">
+                <section class="section mt-24 mb-52" style="min-height: 540px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <section>
+                                    <h6 class="mt-10 mb-20">이력서 관리</h6>
+                                    <div class="resume-list">
+                                        <div onclick="location.href='/resume/write'" class="resume resume-write">
+                                            <div class="alone">
+                                                <img src="https://comento.kr/images/resume-2.svg" alt>
+                                            </div>
+                                            <div>+ 혼자서 작성하기</div>
+                                        </div>
+                                        <div class="resume1">
+                                            <div class="resume-preview text-center">
+                                                <img src="https://comento.kr/images/resume/resume-intro.jpg" alt>
+                                            </div>
+                                            <div class="resume-info">
+                                                <div>
+                                                    <p class="text-truncate h6">이력서_2</p>
+                                                    <p>2023.05.11</p>
+                                                </div>
+                                                <div class="v-popover c-application more-btn ff">
+                                                    <div aria-describedby="popover_qcukh4guyd" class="trigger" style="display: inline-block;">
+                                                        <svg width="16" height="16" viewbox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-pointer c-application c-icon" style="fill: rgb(148, 155, 160);">
+                                                            <circle cx="8" cy="4" r="1"></circle>
+                                                            <circle cx="8" cy="8" r="1"></circle>
+                                                            <circle cx="8" cy="12" r="1"></circle>
+                                                        </svg>
+                                                    </div>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </section>
+            </div>
+        </div>
+        <footer th:replace="~{/main-page/footer :: #footer}"></footer>
+    </div>
+</body>
+</html>
