@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 리고 회원 로그인을 처리하는 기능을 수행합니다. 
+이 XML 파일은 MyBatis 프레임워크에서 사용되며, 
+Java 객체의 메서드와 연결하여 데이터베이스와 상호작용할 수 있도록 돕습니다. -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- SQL 쿼리를 포함하고 있으며, 이를 Java 객체의 메서드와 연결하여 데이터베이스와 상호작용할 수 있도록 돕는다.  -->
+<mapper namespace="user">
+	
+	<insert id="insert">
+		insert into tbl_user
+		(user_name, user_email, user_password, user_phonenumber, user_address)
+		values(#{userName}, #{userEmail}, #{userPassword}, #{userPhonenumber}, #{userAddress})
+	</insert>
+	
+	<select id="selectEmail" resultType="string">
+		select user_email from tbl_user where user_email = #{userEmail}
+	</select>
+	
+	<select id="login" resultType="long">
+		select user_id from tbl_user 
+		where user_email = #{userEmail} and user_password = #{userPassword}
+	</select>
+	
+	
+	<select id="selectUserAll" resultType="userVO">
+		select user_career_years, user_resume, m.user_id, m.user_name  
+		from tbl_user m join tbl_junior_user j
+		on m.user_id = j.user_id
+	</select>
+	
+	<delete id="delete">
+		delete from tbl_board
+		where board_id = #{boardId}
+	</delete>
+	
+	<select id="selectJuniorAll" resultType="JuniorUserDTO">
+		select user_career_years, user_resume, m.user_id, m.user_name  
+		from tbl_user m join tbl_junior_user j
+		on m.user_id = j.user_id
+	</select>
+	
+	<select id="emailCheckId" resultType="long">
+	    select user_id from tbl_user 
+	    where user_email = #{userEmail}
+	</select>
+	
+</mapper>

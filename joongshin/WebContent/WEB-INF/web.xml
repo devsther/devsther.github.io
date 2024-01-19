@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>joongshin</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>User</servlet-name>
+  <servlet-class>com.js.user.UserFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>User</servlet-name>
+  <url-pattern>*.user</url-pattern>
+  </servlet-mapping>
+  
+  
+ <servlet>
+  	<servlet-name>AdminUser</servlet-name>
+  	<servlet-class>com.js.adminUser.AdminUserFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>AdminUser</servlet-name>
+  	<url-pattern>*.adminUser</url-pattern>
+  </servlet-mapping>
+  
+ 
+<servlet>
+  	<servlet-name>JuniorUser</servlet-name>
+  	<servlet-class>com.js.juniorUser.JuniorUserFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>JuniorUser</servlet-name>
+  	<url-pattern>*.juniorUser</url-pattern>
+  </servlet-mapping>   
+   
+  <servlet>
+  	<servlet-name>Board</servlet-name>
+  	<servlet-class>com.js.board.BoardFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>Board</servlet-name>
+  	<url-pattern>*.board</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>Admin</servlet-name>
+  	<servlet-class>com.js.board.BoardListFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>Admin</servlet-name>
+  	<url-pattern>*.admin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>JuniorBoard</servlet-name>
+  	<servlet-class>com.js.juniorUser.JuniorListFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>JuniorBoard</servlet-name>
+  	<url-pattern>*.junior</url-pattern>
+  </servlet-mapping>
+
+  
+  <servlet>
+  	<servlet-name>UserList</servlet-name>
+  	<servlet-class>com.js.user.UserListFrontcontroller</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>UserList</servlet-name>
+  	<url-pattern>*.userlist</url-pattern>
+  </servlet-mapping>
+  
+
+
+  <servlet>
+  	<servlet-name>BoardTag</servlet-name>
+  	<servlet-class>com.js.boardTag.BoardTagFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>BoardTag</servlet-name>
+  	<url-pattern>*.boardTag</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+  	<servlet-name>BoardComment</servlet-name>
+  	<servlet-class>com.js.boardTag.BoardCommentFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>BoardComment</servlet-name>
+  	<url-pattern>*.boardComment</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+  	<servlet-name>BoardFile</servlet-name>
+  	<servlet-class>com.js.boardFile.BoardFileFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>BoardFile</servlet-name>
+  	<url-pattern>*.boardFile</url-pattern>
+  </servlet-mapping>
+  
+
+   <servlet>
+  	<servlet-name>BoardRecommend</servlet-name>
+  	<servlet-class>com.js.recommend.BoardRecommendFrontController</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+  	<servlet-name>BoardRecommend</servlet-name>
+  	<url-pattern>*.boardRecommend</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Message</servlet-name>
+  	<servlet-class>com.js.message.MessageFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Message</servlet-name>
+  	<url-pattern>*.message</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<servlet-name>msg-list</servlet-name>
+  	<jsp-file>/templates/message/msg-list.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>msg-list</servlet-name>
+  	<url-pattern>/msg-list</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>Mypage</servlet-name>
+  	<servlet-class>com.js.mypage.MypageFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Mypage</servlet-name>
+  	<url-pattern>*.mypage</url-pattern>
+  </servlet-mapping>
+  
+</web-app> 
+  
