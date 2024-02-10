@@ -1,3 +1,4 @@
 _config.yml
 title:  Esther Moon
 description: Portfolio for Esther Moon
+theme: jekyll-theme-Hyde
